@@ -14,7 +14,11 @@ const styles = StyleSheet.create({
     },
     operationButton: {
         color: '#fff',
-        backgroundColor: '#fa8231'
+        backgroundColor: '#4227bc'
+    },
+    equalButton: {
+        color: '#fff',
+        backgroundColor: '#19066d'
     },
     buttonDouble: {
         width: (Dimensions.get('window').width / 4) * 2
@@ -33,9 +37,11 @@ export default props => {
         stylesButton.push(styles.buttonTriple);
     if (props.operation) 
         stylesButton.push(styles.operationButton);
+    if (props.equal)
+        stylesButton.push(styles.equalButton);
 
     return (
-        <TouchableHighlight onPress={props.onClick}>
+        <TouchableHighlight onPress={() => props.onClick(props.label)}>
             <Text style={stylesButton}>{props.label}</Text>
         </TouchableHighlight>
     );
